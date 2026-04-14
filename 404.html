@@ -1,0 +1,177 @@
+Отличный исходник! Твой вариант выполнен в стиле «Киберпанк/Неон». Чтобы создать контраст, я подготовил вариацию в стиле «Deep Emerald / Glassmorphism».
+Что изменилось:
+
+    Цветовая схема: Перешли от агрессивного розового неона к глубокому изумрудному и мягкому мятному (#00ff88). Это выглядит более «технологично» и спокойно.
+
+    Стиль: Более выраженный эффект матового стекла (glassmorphism) и тонкие градиентные обводки.
+
+    Анимация: Вместо простого мерцания добавлена мягкая «пульсация» тени и легкое плавание карточки.
+
+HTML
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>404 — Страница не найдена</title>
+  <style>
+    :root {
+      /* Новая палитра: Глубокий изумруд и Мята */
+      --accent: #00ff88;
+      --accent-2: #60efff;
+      --bg: #050a09;
+      --fg: #e0f2f1;
+      --muted: #94a3a8;
+      --glass: rgba(10, 25, 20, 0.7);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      color: var(--fg);
+      /* Фон с более мягким абстрактным изображением */
+      background: 
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(5, 10, 9, 0.9), rgba(5, 10, 9, 0.95)),
+        url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80") 
+          center/cover no-repeat fixed;
+      display: grid;
+      place-items: center;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      max-width: 600px;
+      width: 90%;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      border-radius: 24px;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .code {
+      font-size: clamp(5rem, 15vw, 10rem);
+      font-weight: 800;
+      line-height: 1;
+      margin: 0;
+      background: linear-gradient(to bottom, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.3));
+    }
+
+    .title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin: 1rem 0 0.5rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #050a09;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+
+    .btn.primary:hover {
+      background: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+    }
+
+    .btn.outline {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--fg);
+    }
+
+    .btn.outline:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--accent);
+    }
+
+    /* Декоративный элемент - размытое пятно на фоне */
+    .blob {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: var(--accent);
+      filter: blur(80px);
+      z-index: -1;
+      opacity: 0.15;
+      border-radius: 50%;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob" style="top: 10%; left: 10%;"></div>
+  <div class="blob" style="bottom: 10%; right: 10%;"></div>
+
+  <main class="card">
+    <span class="badge">Ошибка связи</span>
+    <div class="code">404</div>
+    <h1 class="title">Упс! Мы затерялись в пустоте.</h1>
+    <p class="desc">Похоже, эта страница решила уйти в глубокий офлайн. Попробуем вернуться?</p>
+    
+    <div class="actions">
+      <a class="btn primary" href="/">На главную</a>
+      <a class="btn outline" href="javascript:history.back()">Назад</a>
+    </div>
+  </main>
+</body>
+</html>
