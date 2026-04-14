@@ -251,13 +251,32 @@
     </div>
 
   </div>
-
+ 
   <div class="footer">
-    <!---div style="font-weight: 700; font-size: 22px; letter-spacing: -0.01em;">Связаться</div> --->
-    <div class="contacts">
-      <a href="https://t.me/dad4aec5" target="_blank">Связаться</a>
-    </div>
+  <div class="contacts">
+    <a id="tg-contact" style="cursor:pointer;" target="_blank">Связаться</a>
   </div>
+</div>
+
+<script>
+  (function() {
+    const secret = "aHR0cHM6Ly90Lm1lL2RhZDRhZWM1";
+    const link = document.getElementById('tg-contact');
+
+    const openLink = function() {
+      const url = atob(secret);
+      window.open(url, '_blank');
+    };
+
+    link.addEventListener('click', openLink);
+    
+    link.addEventListener('mouseover', function() {
+      if (!this.href) {
+        this.href = atob(secret);
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
