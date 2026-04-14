@@ -253,20 +253,9 @@
   </div>
 
   <script>
-    // Настройка вьювера STL
-    // Используем твой файл assets/2.stl
-    var stl_viewer = new StlViewer(document.getElementById("stl_cont"), { 
-      models: [
-        { 
-          filename: "assets/2.stl", 
-          color: "#3b82f6", 
-          display: "smooth" 
-        }
-      ],
-      auto_rotate: true,
-      bgcolor: "#020617",
-      zoom: 85
-    });
+   var stl_viewer=new StlViewer(document.getElementById("stl_cont"), {
+    models:  [  {filename:"assets/2.stl"}  ]
+   } );
   </script>
 
 </body>
