@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Фото → 3D модель (STL)</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <script src="js/stl_viewer.min.js"></script> 
-  
   <style>
     :root {
       --bg: #0b0f1a;
@@ -24,9 +22,10 @@
       background: var(--bg); 
       color: var(--text-main);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Фоновое свечение */
+    /* Декоративное свечение на фоне */
     body::before {
       content: "";
       position: fixed;
@@ -60,12 +59,12 @@
       font-size: 18px;
     }
 
-    /* Блок с изображениями/моделью */
+    /* Блок сравнения */
     .images { 
       display: grid; 
       grid-template-columns: 1fr auto 1fr; 
       align-items: center; 
-      gap: 20px; 
+      gap: 24px; 
       margin-bottom: 60px; 
     }
 
@@ -94,9 +93,17 @@
       justify-content: center;
     }
 
-    .card img { width: 100%; height: 100%; object-fit: cover; }
+    .card img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+    }
 
-    #stl_cont { width: 100%; height: 100%; }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
     .card span { 
       display: block;
@@ -115,7 +122,7 @@
       filter: drop-shadow(0 0 8px var(--accent-glow));
     }
 
-    /* Секции текста */
+    /* Текстовые секции */
     .section { text-align: center; margin-bottom: 60px; }
     .section p { max-width: 720px; margin: 0 auto 24px; color: #cbd5e1; font-size: 17px; }
 
@@ -136,7 +143,6 @@
       font-size: 15px;
     }
 
-    /* Сетка преимуществ */
     .features { 
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
@@ -152,37 +158,36 @@
       font-size: 14px; 
       color: #cbd5e1;
       text-align: center;
+      font-weight: 500;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 500;
     }
 
-    /* Подвал */
+    /* Футер */
     .footer { 
       text-align: center; 
-      padding: 60px 20px; 
+      padding: 80px 20px; 
       border-top: 1px solid var(--border);
       background: linear-gradient(to top, rgba(59,130,246,0.05), transparent);
     }
 
-    .contacts { margin-top: 25px; }
-    
     .contacts a { 
       display: inline-block; 
-      padding: 16px 40px; 
+      margin-top: 25px;
+      padding: 18px 48px; 
       border-radius: 100px; 
       background: var(--accent); 
       color: white; 
       text-decoration: none; 
-      font-weight: 600;
-      font-size: 16px;
-      transition: 0.3s;
+      font-weight: 700;
+      font-size: 18px;
       box-shadow: 0 10px 20px -5px var(--accent-glow);
+      transition: all 0.3s ease;
     }
 
     .contacts a:hover { 
-      transform: scale(1.05);
+      transform: translateY(-3px);
       box-shadow: 0 15px 30px -5px var(--accent-glow);
     }
 
@@ -190,6 +195,7 @@
       .images { grid-template-columns: 1fr; }
       .arrow { transform: rotate(90deg); margin: 0 auto; }
       h1 { font-size: 32px; }
+      .container { padding: 40px 20px; }
     }
   </style>
 </head>
@@ -212,7 +218,10 @@
 
       <div class="card">
         <div class="media-holder">
-          <div id="stl_cont"></div>
+          <iframe 
+            src="https://www.viewstl.com/?embedded&url=https://3d.cg29.ru/assets/2.stl&color=lightskyblue&bgcolor=020617&noborder=1" 
+            allowfullscreen>
+          </iframe>
         </div>
         <span>Результат (3D модель)</span>
       </div>
@@ -239,34 +248,17 @@
       <div class="feature">Подходит для простых объектов</div>
       <div class="feature">Форматы: STL, OBJ, GLB, PLY</div>
       <div class="feature">Предварительная оценка фото</div>
-      <div class="feature">Ожидаемый результат соответствует примеру</div>
       <div class="feature">Гуманные цены</div>
     </div>
 
   </div>
 
   <div class="footer">
-    <div style="font-weight: 600; font-size: 20px;">Связаться</div>
+    <div style="font-weight: 700; font-size: 22px; letter-spacing: -0.01em;">Связаться</div>
     <div class="contacts">
       <a href="https://t.me/your_username" target="_blank">Telegram</a>
     </div>
   </div>
-
-  <script>
-    var stl_viewer = new StlViewer(document.getElementById("stl_cont"), { 
-      models: [
-        { 
-          filename: "assets/2.stl", 
-          color: "#3b82f6", 
-          display: "flat" 
-        }
-      ],
-      auto_rotate: false,
-      center_models: true,
-      auto_resize: true,
-      bgcolor: "#020617",
-    });
-  </script>
 
 </body>
 </html>
