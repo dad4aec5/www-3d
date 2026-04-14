@@ -253,9 +253,19 @@
   </div>
 
   <script>
-   var stl_viewer=new StlViewer(document.getElementById("stl_cont"), {
-    models:  [  {filename:"assets/2.stl"}  ]
-   } );
+    var stl_viewer = new StlViewer(document.getElementById("stl_cont"), { 
+      models: [
+        { 
+          filename: "assets/2.stl", 
+          color: "#3b82f6", 
+          display: "smooth" 
+        }
+      ],
+      auto_rotate: true,
+      auto_resize: true,
+      bgcolor: "#020617",
+      zoom: 85
+    });
   </script>
 
 </body>
