@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Фото → 3D модель (STL)</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
       --bg: #0b0f1a;
@@ -192,56 +191,6 @@
       box-shadow: 0 15px 30px -5px var(--accent-glow);
     }
 
-  .footer-cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    padding: 20px 30px;
-    border-radius: 20px;
-    max-width: fit-content;
-    margin: 0 auto;
-    backdrop-filter: blur(10px);
-  }
-
-  .cta-text {
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: -0.01em;
-    color: var(--text-main);
-  }
-
-  .tg-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 14px;
-    background: var(--accent);
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 15px -5px var(--accent-glow);
-  }
-
-  .tg-button:hover {
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 12px 20px -5px var(--accent-glow);
-    background: #2563eb; /* Чуть насыщеннее при наведении */
-  }
-
-  @media (max-width: 480px) {
-    .footer-cta {
-      flex-direction: column;
-      gap: 15px;
-      padding: 20px;
-    }
-  }
-
     @media (max-width: 768px) {
       .images { grid-template-columns: 1fr; }
       .arrow { transform: rotate(90deg); margin: 0 auto; }
@@ -291,7 +240,7 @@
       </ul>
 
       <p style="margin-top:20px; color: var(--text-dim);">
-        Перед началом выполняется быстрая оценка изображения - это позволяет сразу понять, есть ли шанс на адекватный результат.
+        Перед началом выполняется быстрая оценка изображения — это позволяет сразу понять, есть ли шанс на адекватный результат.
       </p>
     </div>
 
@@ -302,16 +251,13 @@
     </div>
 
   </div>
+
   <div class="footer">
-    <div class="footer-cta">
-      <div class="cta-text">Связаться в</div>
-      <div class="contacts">
-        <a href="https://t.me/dad4aec5" class="tg-button" target="_blank" title="Написать в Telegram">
-          <i class="fas fa-comment-alt"></i>
-        </a>
-      </div>
+    <!---div style="font-weight: 700; font-size: 22px; letter-spacing: -0.01em;">Связаться</div> --->
+    <div class="contacts">
+      <a href="https://t.me/dad4aec5" target="_blank">Связаться</a>
     </div>
   </div>
-  
+
 </body>
 </html>
